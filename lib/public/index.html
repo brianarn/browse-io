@@ -12,6 +12,9 @@
         console.log('syn:', data);
         socket.emit('ack', data);
       });
+      socket.on('event', function (data) {
+        console.log('event:', data);
+      });
     </script>
   </body>
 </html>
