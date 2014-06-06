@@ -1,3 +1,3 @@
-# BrowseDuino
+# Browse-IO
 
-Makin a thing
+The start of a browser-based IO plugin for Johnny-Five environments. Woo!
