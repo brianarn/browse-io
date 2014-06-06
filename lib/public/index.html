@@ -8,9 +8,9 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect('http://localhost:3000');
-      socket.on('syn', function (data) {
-        console.log('syn:', data);
-        socket.emit('ack', data);
+      socket.on('board', function (data) {
+        console.log('board:', data);
+        socket.emit('ready');
       });
       socket.on('event', function (data) {
         console.log('event:', data);
