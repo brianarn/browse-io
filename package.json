@@ -9,11 +9,9 @@
   "author": "Brian Arnold",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.3.1",
-    "ioboard": "^3.0.0",
-    "socket.io": "^1.0.1"
-  },
-  "devDependencies": {
-    "johnny-five": "^0.7.47"
+    "express": "^4.11.2",
+    "board-io": "^3.0.1",
+    "socket.io": "^1.3.4",
+    "johnny-five": "^0.8.43"
   }
 }

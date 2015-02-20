@@ -9,6 +9,7 @@ var ioBoard = new BrowseIO({
 board = new five.Board({
   io: ioBoard
 });
+
 console.log('Board created');
 
 board.on('ready', function() {
