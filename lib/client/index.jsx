@@ -1,9 +1,12 @@
 'use strict';
 
-var socket = require('./socket');
-
 var React = require('react');
-var App = require('./app.jsx');
+var App = require('./components/App.jsx');
+
+// Loading our socket module has a side effect:
+// Actually starts up all the listening to the server.
+// No actual need to use a thing.
+var socket = require('./socket');
 
 React.render(
   <App />,

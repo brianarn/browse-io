@@ -7,7 +7,7 @@
 var bootstrap = require('bootstrap/dist/css/bootstrap.css');
 var React = require('react');
 var Reflux = require('reflux');
-var boardStore = require('./boardStore');
+var boardEventStore = require('../stores/boardEventStore');
 
 var App = React.createClass({
   mixins: [
@@ -23,7 +23,7 @@ var App = React.createClass({
   },
   componentDidMount: function () {
     console.log('app componentDidMount');
-    this.listenTo(boardStore, this.onBoardEvent);
+    this.listenTo(boardEventStore, this.onBoardEvent);
   },
   onBoardEvent: function (boardEvents) {
     console.log('app onBoardEvent', arguments);
