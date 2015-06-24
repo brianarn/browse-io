@@ -21,6 +21,9 @@ board.on('ready', function() {
     pin: 13
   });
 
+  // Cycle every second
+  led.strobe(500);
+
   this.repl.inject({
     five: five,
     ioBoard: ioBoard,
