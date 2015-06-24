@@ -7,6 +7,8 @@
 var bootstrap = require('bootstrap/dist/css/bootstrap.css');
 var React = require('react');
 var Reflux = require('reflux');
+
+var BoardEventList = require('./BoardEventList.jsx');
 var boardEventStore = require('../stores/boardEventStore');
 
 var App = React.createClass({
@@ -17,8 +19,7 @@ var App = React.createClass({
     console.log('app getInitialState');
     return {
       title: 'Browser IO',
-      lastEvent: 'None yet',
-      boardEvents: []
+      lastEvent: 'None yet'
     };
   },
   componentDidMount: function () {
@@ -28,8 +29,7 @@ var App = React.createClass({
   onBoardEvent: function (boardEvents) {
     console.log('app onBoardEvent', arguments);
     this.setState({
-      lastEvent: boardEvents[0].timestamp.toString(),
-      boardEvents: boardEvents
+      lastEvent: boardEvents[0].timestamp.toString()
     });
   },
   render: function () {
@@ -39,24 +39,7 @@ var App = React.createClass({
         <h1>{this.state.title}</h1>
         <p>Last Event: { this.state.lastEvent }</p>
         <h2>Recent Events</h2>
-        <table className="table table-condensed">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Arguments</th>
-              <th>Timestamp</th>
-            </tr>
-            {this.state.boardEvents.map(function (event) {
-              return (
-                <tr>
-                  <td>{ event.type }</td>
-                  <td><code>{ JSON.stringify(event.args) }</code></td>
-                  <td>{ event.timestamp.toString() }</td>
-                </tr>
-              )
-            })}
-          </thead>
-        </table>
+        <BoardEventList />
       </div>
     );
   }
