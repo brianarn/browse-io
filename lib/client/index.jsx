@@ -9,6 +9,6 @@ var App = require('./components/App.jsx');
 var socket = require('./socket');
 
 React.render(
-  <App />,
+  <App title="Browse IO" />,
   document.getElementById('app')
 );

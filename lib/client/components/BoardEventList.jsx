@@ -44,7 +44,7 @@ var BoardEventList = React.createClass({
               <tr>
                 <td>{ event.type }</td>
                 <td><code>{ JSON.stringify(event.args) }</code></td>
-                <td>{ event.timestamp.toString() }</td>
+                <td>{ event.timestamp.toLocaleString() }</td>
               </tr>
             )
           })}
