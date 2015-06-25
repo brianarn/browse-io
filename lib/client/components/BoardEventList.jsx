@@ -32,7 +32,7 @@ var BoardEventList = React.createClass({
     console.log('BoardEventList render');
     console.log(this.state);
     return (
-      <table className="table table-condensed table-bordered table-hover">
+      <table id="board-event-list" className="table table-condensed table-bordered table-hover">
         <thead>
           <tr>
             <th>Type</th>

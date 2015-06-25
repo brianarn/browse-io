@@ -6,7 +6,11 @@ module.exports = function (grunt) {
 
     watch: {
       webpack: {
-        files: ['lib/client/**/*.js', 'lib/client/**/*.jsx'],
+        files: [
+          'lib/client/**/*.js',
+          'lib/client/**/*.jsx',
+          'lib/client/**/*.css'
+        ],
         tasks: ['webpack']
       }
     }

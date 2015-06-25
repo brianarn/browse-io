@@ -15,13 +15,24 @@ console.log('Board created');
 board.on('ready', function() {
   console.log('Board ready');
 
-  var led = new five.Led({
+  // Create a couple of LEDs
+  var digitalLed = new five.Led({
     pin: 13
   });
+  var analogLed = new five.Led({
+    pin: 6
+  });
+
+  var duration = 2000;
+  digitalLed.strobe(duration);
+  setTimeout(function () {
+    analogLed.pulse(duration);
+  }, duration / 2);
 
   this.repl.inject({
     five: five,
     ioBoard: ioBoard,
-    led: led
+    digitalLed: digitalLed,
+    analogLed: analogLed,
   });
 });

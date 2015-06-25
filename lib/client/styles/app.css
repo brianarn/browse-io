@@ -1,0 +1,9 @@
+/* Fade out the updated pins when they go inactive */
+#board-pins > tbody > tr > td {
+  transition-property: background-color;
+  transition-duration: 250ms;
+}
+
+#board-pins > tbody > tr.warning > td {
+  transition-duration: 0s;
+}

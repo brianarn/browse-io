@@ -10,6 +10,8 @@ var boardUtilities = require('../../utilities');
 
 var boardPinStore = require('../stores/boardPinStore');
 
+var LAST_UPDATED_TIME = 100;
+
 var BoardPins = React.createClass({
   mixins: [
     Reflux.ListenerMixin
@@ -34,22 +36,41 @@ var BoardPins = React.createClass({
     console.log('BoardPins render');
     console.log(this.state);
 
+    var now = Date.now();
+
     return (
-      <table className="table table-condensed table-bordered table-hover">
+      <table id="board-pins" className="table table-condensed table-bordered table-hover">
         <thead>
           <tr>
-            <th>Pin</th>
-            <th>Mode</th>
+            <th style={{width: '50px'}}>Pin</th>
+            <th style={{width: '100px'}}>Mode</th>
             <th>Value</th>
           </tr>
         </thead>
         <tbody>
           {this.state.boardPins.map(function (pin) {
+            var index = pin.index;
+            var mode = boardUtilities.getModeNameByValue(pin.mode);
+            var value = pin.value;
+
+            // Apply a style for recently updated pins
+            var rowClass = '';
+            if (now - pin.lastUpdated < LAST_UPDATED_TIME) {
+              rowClass = 'warning';
+            }
+
+            // For not-so-ugly display, chop/round PWM values
+            /*
+            if (mode == 'PWM') {
+              value = parseFloat(value).toFixed(2);
+            }
+            */
+
             return (
-              <tr key={ pin.index } className={ pin.lastUpdated ? 'warning' : '' }>
-                <td>{ pin.index }</td>
-                <td>{ boardUtilities.getModeNameByValue(pin.mode) }</td>
-                <td>{ pin.value }</td>
+              <tr key={ index } className={ rowClass }>
+                <td>{ index }</td>
+                <td>{ mode }</td>
+                <td>{ value }</td>
               </tr>
             )
           })}

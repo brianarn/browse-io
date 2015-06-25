@@ -4,16 +4,23 @@
 'use strict';
 
 // Baseline dependencies
-var bootstrap = require('bootstrap/dist/css/bootstrap.css');
+// Styles
+require('bootstrap/dist/css/bootstrap.css');
+require('../styles/app.css');
+
+// React bits
 var React = require('react');
 var Reflux = require('reflux');
 
+// Other components
 var NavBar = require('./NavBar.jsx');
 var BoardPins = require('./BoardPins.jsx');
 var BoardEventList = require('./BoardEventList.jsx');
 
+// Other things
 var boardEventStore = require('../stores/boardEventStore');
 
+// Make our app!
 var App = React.createClass({
   mixins: [
     Reflux.ListenerMixin
