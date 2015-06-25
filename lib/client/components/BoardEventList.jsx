@@ -32,23 +32,25 @@ var BoardEventList = React.createClass({
     console.log('BoardEventList render');
     console.log(this.state);
     return (
-      <table className="table table-condensed">
+      <table className="table table-condensed table-bordered table-hover">
         <thead>
           <tr>
             <th>Type</th>
             <th>Arguments</th>
             <th>Timestamp</th>
           </tr>
+        </thead>
+        <tbody>
           {this.state.boardEvents.map(function (event) {
             return (
-              <tr>
+              <tr key={event.id}>
                 <td>{ event.type }</td>
                 <td><code>{ JSON.stringify(event.args) }</code></td>
                 <td>{ event.timestamp.toLocaleString() }</td>
               </tr>
             )
           })}
-        </thead>
+        </tbody>
       </table>
     );
   }

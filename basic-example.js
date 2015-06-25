@@ -16,17 +16,23 @@ board.on('ready', function() {
   ioBoard._board = board;
   console.log('Board ready');
 
-  // Create a standard `led` hardware instance
-  led = new five.Led({
+  // Create a couple of LEDs
+  var digitalLed = new five.Led({
     pin: 13
   });
+  var analogLed = new five.Led({
+    pin: 6
+  });
 
-  // Cycle every second
-  led.strobe(500);
+  digitalLed.strobe(1000);
+  setTimeout(function () {
+    analogLed.strobe(1000);
+  }, 500);
 
   this.repl.inject({
     five: five,
     ioBoard: ioBoard,
-    led: led
+    digitalLed: digitalLed,
+    analogLed: analogLed,
   });
 });

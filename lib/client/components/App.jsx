@@ -9,6 +9,7 @@ var React = require('react');
 var Reflux = require('reflux');
 
 var NavBar = require('./NavBar.jsx');
+var BoardPins = require('./BoardPins.jsx');
 var BoardEventList = require('./BoardEventList.jsx');
 
 var boardEventStore = require('../stores/boardEventStore');
@@ -45,7 +46,7 @@ var App = React.createClass({
           <div className="row">
             <div className="col-md-8">
               <h2>Pin Inspection</h2>
-              <p>TODO: Put Pin inspection here</p>
+              <BoardPins />
             </div>
             <div className="col-md-4">
               <h2>Recent Events</h2>
