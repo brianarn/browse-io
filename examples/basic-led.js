@@ -1,5 +1,5 @@
 var five = require('johnny-five');
-var BrowseIO = require('./lib/BrowseIO');
+var BrowseIO = require('../lib/BrowseIO');
 var board, led;
 
 var ioBoard = new BrowseIO({
