@@ -23,7 +23,7 @@ board.on('ready', function() {
     pin: 6
   });
 
-  var duration = 2000;
+  var duration = 1000;
   digitalLed.strobe(duration);
   setTimeout(function () {
     analogLed.pulse(duration);
