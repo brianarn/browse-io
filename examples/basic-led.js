@@ -3,7 +3,8 @@ var BrowseIO = require('../lib/BrowseIO');
 var board, led;
 
 var ioBoard = new BrowseIO({
-  debug: true
+  debug: true,
+  forward: true
 });
 
 board = new five.Board({
@@ -22,6 +23,7 @@ board.on('ready', function() {
   this.repl.inject({
     five: five,
     ioBoard: ioBoard,
+    //board: board,
     led: led
   });
 });
