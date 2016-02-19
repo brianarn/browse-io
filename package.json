@@ -20,6 +20,7 @@
     "hapi": "^8.6.1",
     "johnny-five": "^0.8.43",
     "jsx-loader": "^0.13.2",
+    "lodash.throttle": "^4.0.1",
     "node-libs-browser": "^0.5.2",
     "react": "^0.13.3",
     "reflux": "^0.2.8",
